@@ -1,7 +1,6 @@
 #include <stdio.h>
 /**
-  * main - print numbers without using char, printf or puts but putchar can be 
-  *used twice.
+  * main - print numbers without using char, printf or puts but putcharx2
   *
   * Return: Always 0 (Success)
   */
