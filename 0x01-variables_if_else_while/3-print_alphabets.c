@@ -2,6 +2,7 @@
 /**
   * main - print alpha in lower case then in upper case
   *
+  * Return: Always 0 (Success)
   */
 int main(void)
 {
