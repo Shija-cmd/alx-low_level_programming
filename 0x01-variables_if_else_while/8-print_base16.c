@@ -12,6 +12,7 @@ int main(void)
 	{
 		putchar (i);
 		i++;
+	}
 		i= 'a';
 
 		while (i <= 'f')
@@ -21,6 +22,7 @@ int main(void)
 		}
 		putchar ('\n');
 		return (0);
-	}
 }
+	
+
 
