@@ -10,23 +10,23 @@
 int main(void)
 {
 	char str[100];
-	int i = 0, randNum = 0, Tada = 0;
+	int i = 0, randNum = 0, suma = 0;
 
 	srand (time(NULL));
 
 
-	for (i = 0; Tada <= 2644; i++)
+	for (i = 0; suma <= 2644; i++)
 	{
 		randNum = (rand() % 25) + 65;
 
 		str[i] = randNum;
-		Tada = Tada + randNum;
+		suma = suma + randNum;
 	}
 
-	str[i++] = 2772 - Tada;
+	str[i++] = 2772 - suma;
 	str[i++] = '\0';
 
-	printf("%s!\n", str);
+	printf("%s\n", str);
 
 	return (0);
 }
