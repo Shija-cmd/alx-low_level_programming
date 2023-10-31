@@ -22,8 +22,8 @@ int main(int argc, char *argv[])
 	{
 		j = 1;
 
-		for(i=1; i<3; i++)
-			j *=atoi(argv[i]);
+		for(i = 1; i < 3; i++)
+			j *= atoi(argv[i]);
 
 		printf("%d\n", j);
 	}
