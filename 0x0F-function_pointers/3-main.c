@@ -3,9 +3,9 @@
 #include <stdlib.h>
 /**
  * main - get_op_func has operators correlated with func signs and funcs from op_func
- * if_not_4_arg -  return Error and exit 98
- * if_op_is_null -  return Error and exit 99
- * if_div_or_mod_0 -  return Error and exit 100
+ * if not 4 arguments -  return Error and exit 98
+ * if op is null -  return Error and exit 99
+ * if div or mod 0 -  return Error and exit 100
  * run calc, input one, operator, input two - pointer res to get get_op
  * @argc: arguments
  * @argv: double pointer to arguments
