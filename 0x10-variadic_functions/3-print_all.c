@@ -3,6 +3,7 @@
 #include <stdarg.h>
 /**
  * print_all - Entry point
+ * c = char, i = int, f = float, s = char * (if null print (nil))
  * @format: list of arg types
  * Return: 0
  */
@@ -14,6 +15,9 @@ void print_all(const char * const format, ...)
 	char *str;
 
 	va_start(valist, format);
+
+	while (format && format[i])
+		i++;
 
 	while (format && format[i])
 	{
