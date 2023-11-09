@@ -3,7 +3,7 @@
 #include <stdio.h>
 /**
  * print_strings - Entry point
- * separator: comma space
+ * @separator: comma space
  * @n: number of elements
  * Return: void
  */
