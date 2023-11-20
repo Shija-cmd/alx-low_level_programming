@@ -4,7 +4,7 @@
  * listint_len - returns the lenth of a list;
  * @h: pointer to the head of a list.
  *
- * Return: Length (INT) of a list.
+ * Return: Length of a list.
  */
 size_t listint_len(const listint_t *h)
 {
