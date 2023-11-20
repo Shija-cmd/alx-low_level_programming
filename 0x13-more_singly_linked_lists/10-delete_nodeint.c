@@ -4,7 +4,7 @@
  * delete_nodeint_at_index - function that deletes the node at index index of a
  * listint_t linked list.
  *
- * @head: poiter of pointer to a head of a list.
+ * @head: pointer of pointer to a head of a list.
  * @index: position of node to delete.
  *
  * Return: 1 (success) else -1 on fail.
