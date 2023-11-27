@@ -89,7 +89,7 @@ int main(int argc, const char *argv[])
 		_close(f_in);
 		exit(99);
 	}
-	while ((bytes_read = _read(argv[1], fd_in, buffer, BUFSIZE)))
+	while ((bytes_read = _read(argv[1], f_in, buffer, BUFSIZE)))
 	{
 		if (bytes_read < 0)
 		{
