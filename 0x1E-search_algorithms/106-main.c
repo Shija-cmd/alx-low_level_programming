@@ -1,44 +1,34 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include "search_algos.h"
 
+skiplist_t *create_skiplist(int *array, size_t size);
+void print_skiplist(const skiplist_t *list);
+void free_skiplist(skiplist_t *list);
+
 /**
- * linear_skip - searches for a value in a skip list
- * @list: input list
- * @value: value to search
- * Return: index of the number
+ * main - Entry point
+ *
+ * Return: Always EXIT_SUCCESS
  */
-skiplist_t *linear_skip(skiplist_t *list, int value)
+int main(void)
 {
-	skiplist_t *go;
+    skiplist_t *list, *res;
+    int array[] = {
+        0, 1, 2, 3, 4, 7, 12, 15, 18, 19, 23, 53, 61, 62, 76, 99
+    };
+    size_t size = sizeof(array) / sizeof(array[0]);
 
-	if (list == NULL)
-		return (NULL);
+    list = create_skiplist(array, size);
+    print_skiplist(list);
 
-	go = list;
+    res =  linear_skip(list, 53);
+    printf("Found %d at index: %lu\n\n", 53, res->index);
+    res =  linear_skip(list, 2);
+    printf("Found %d at index: %lu\n\n", 2, res->index);
+    res =  linear_skip(list, 999);
+    printf("Found %d at index: %p\n", 999, (void *) res);
 
-	do {
-		list = go;
-		go = go->express;
-		printf("Value checked at index ");
-		printf("[%d] = [%d]\n", (int)go->index, go->n);
-	} while (go->express && go->n < value);
-
-	if (go->express == NULL)
-	{
-		list = go;
-		while (go->next)
-			go = go->next;
-	}
-
-	printf("Value found between indexes ");
-	printf("[%d] and [%d]\n", (int)list->index, (int)go->index);
-
-	while (list != go->next)
-	{
-		printf("Value checked at index [%d] = [%d]\n", (int)list->index, list->n);
-		if (list->n == value)
-			return (list);
-		list = list->next;
-	}
-
-	return (NULL);
+    free_skiplist(list);
+    return (EXIT_SUCCESS);
 }
