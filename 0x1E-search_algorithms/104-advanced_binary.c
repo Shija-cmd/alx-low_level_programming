@@ -1,59 +1,65 @@
 #include "search_algos.h"
 
 /**
- * rec_search - searches for a value in an array.
- * @array: input array
- * @size: size
- * @value: value to search
- * Return: index 
+ * print_array - print an array
+ * @array: the array to print
+ * @l: the left index
+ * @r: the right index
  */
-int rec_search(int *array, size_t size, int value)
+void print_array(int *array, int l, int r)
 {
-	size_t half = size / 2;
-	size_t i;
+	int i;
 
-	if (array == NULL || size == 0)
-		return (-1);
-
-	printf("Searching in array");
-
-	for (i = 0; i < size; i++)
-		printf("%s %d", (i == 0) ? ":" : ",", array[i]);
-
-	printf("\n");
-
-	if (half && size % 2 == 0)
-		half--;
-
-	if (value == array[half])
+	for (i = l; i <= r; i++)
 	{
-		if (half > 0)
-			return (rec_search(array, half + 1, value));
-		return ((int)half);
+		printf("%d", array[i]);
+		if (i < r)
+			printf(", ");
 	}
+	printf("\n");
+}
 
-	if (value < array[half])
-		return (rec_search(array, half + 1, value));
+int binary_recurtion(int *array, int left, int right, int value);
 
-	half++;
-	return (rec_search(array + half, size - half, value) + half);
+/**
+* advanced_binary -	function that searches for a value
+* @array: array of integers
+* @size: size of array
+* @value: value that searched in array
+* Return: return the index of value, and if it doesn't exist return -1
+*/
+int advanced_binary(int *array, size_t size, int value)
+{
+	if (!array || size == 0)
+		return (-1);
+	return (binary_recurtion(array, 0, (int) size - 1, value));
 }
 
 /**
- * advanced_binary - calls to rec_search to return
- * @array: input array
- * @size: size of the array
- * @value: value to search 
- * Return: index of the number
- */
-int advanced_binary(int *array, size_t size, int value)
+* binary_recurtion - function that searches for a value
+* @array: array of integers
+* @left: start of an array
+* @right: end of array of an array
+* @value: value that searched in array
+* Return: return the index of value, and if it doesn't exist return -1
+*/
+
+int binary_recurtion(int *array, int left, int right, int value)
 {
-	int index;
+	int mid = (left + right) / 2;
 
-	index = rec_search(array, size, value);
-
-	if (index >= 0 && array[index] != value)
+	printf("Searching in array: ");
+	print_array(array, left, right);
+	if (left >= right)
 		return (-1);
-
-	return (index);
+	if (array[mid] == value)
+	{
+		if (array[mid - 1] != value)
+			return (mid);
+		else
+			return (binary_recurtion(array, left--, mid, value));
+	} else if (value < array[mid])
+		return (binary_recurtion(array, left, mid - 1, value));
+	else
+		return (binary_recurtion(array, mid + 1, right, value));
 }
